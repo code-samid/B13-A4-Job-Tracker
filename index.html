@@ -1,11 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Tracker</title>
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+    <!-- tailwind css -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body>
-    Hello There
+
+<body class="bg-[#1e1e1e]/5">
+    <header class="w-[80%] mx-auto">
+        <h1 class="text-4xl font-bold mb-5">Job Application Tracker</h1>
+        <div class="grid grid-cols-3 gap-6 mb-15">
+            <div class="p-4 rounded-lg font-medium bg-white">
+                <p>Total</p>
+                <p class="font-bold" id="total">0</p>
+            </div>
+
+            <div class="p-4 rounded-lg font-medium bg-white">
+                <p>Interview</p>
+                <p class="font-bold text-green-500" id="interview">0</p>
+            </div>
+
+            <div class="p-4 rounded-lg font-medium bg-white">
+                <p>Rejected</p>
+                <p class="font-bold text-red-500" id="rejected">0</p>
+            </div>
+
+        </div>
+    </header>
+    
+
+    <main class="w-[80%] mx-auto">
+        <div>
+            <button class="bg-gray-500 text-white px-5 py-2 rounded-xl" id="all-filter-btn">All</button>
+            <button class="bg-gray-300 px-5 py-2 rounded-xl" id="interview-filter-btn">Interview</button>
+            <button class="bg-gray-300 px-5 py-2 rounded-xl" id="rejected-filter-btn">Rejected</button>
+        </div>
+    </main>
+
 </body>
+
 </html>
