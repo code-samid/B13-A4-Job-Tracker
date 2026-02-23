@@ -24,7 +24,7 @@
         <div class="grid grid-cols-3 gap-6 mb-15">
             <div class="p-4 rounded-lg font-medium bg-white">
                 <p>Total</p>
-                <p class="font-bold" id="total">8</p>
+                <p class="total">0</p>
             </div>
 
             <div class="p-4 rounded-lg font-medium bg-white">
@@ -45,22 +45,33 @@
     <main class="w-[80%] mx-auto">
         <div class="flex justify-between mb-6">
             <h2 class="font-bold">Available Jobs</h2>
-            <p>8 jobs</p>
+            <p class="total">0 jobs</p>
         </div>
         <div class="mb-10">
-            <button class="bg-blue-500 text-white px-12 py-2 rounded-lg" id="all-filter-btn">All</button>
-            <button class="bg-white rounded-lg px-12 py-2" id="interview-filter-btn">Interview</button>
-            <button class="bg-white rounded-lg px-12 py-2" id="rejected-filter-btn">Rejected</button>
+            <button onclick="toggleStyle('all-filter-btn')" class="bg-blue-500 text-white px-12 py-2 rounded-lg"
+                id="all-filter-btn">All</button>
+            <button onclick="toggleStyle('interview-filter-btn')" class="bg-white rounded-lg px-12 py-2"
+                id="interview-filter-btn">Interview</button>
+            <button onclick="toggleStyle('rejected-filter-btn')" class="bg-white rounded-lg px-12 py-2"
+                id="rejected-filter-btn">Rejected</button>
         </div>
 
-        <div class="space-y-4">
-            <section class="bg-white p-6">
+
+        <div id="emptyState" class="hidden text-center py-10">
+            <img src="/images/jobs.png" alt="" class="mx-auto block mb-4">
+            <h3 class="font-bold text-lg">No jobs available</h3>
+            <p class="text-gray-500">Try selecting another tab</p>
+        </div>
+
+
+        <div class="space-y-4" id="allCards">
+            <section class="bg-white p-6 rounded-lg">
                 <div class="flex justify-between">
                     <div>
                         <h2 class="font-semibold">Mobile First Corp</h2>
                         <p>React Native Developer</p>
                     </div>
-                    <div><i class="fa-regular fa-trash-can"></i></div>
+                    <div><i class="fa-regular fa-trash-can delete-btn"></i></div>
                 </div>
                 <div class="my-5">
                     <p>Remote
@@ -77,17 +88,19 @@
                 </div>
 
                 <div class="flex gap-4">
-                    <button class="border border-green-500 text-green-500 px-6 py-2 rounded-lg">INTERVIEW</button>
-                    <button class="border  border-red-500 text-red-500 px-6 py-2 rounded-lg">REJECTED</button>
+                    <button
+                        class="interview-btn border border-green-500 text-green-500 px-6 py-2 rounded-lg">INTERVIEW</button>
+                    <button
+                        class="rejected-btn border  border-red-500 text-red-500 px-6 py-2 rounded-lg">REJECTED</button>
                 </div>
             </section>
-            <section class="bg-white p-6">
+            <section class="bg-white p-6 rounded-lg">
                 <div class="flex justify-between">
                     <div>
                         <h2 class="font-semibold">WebFlow Agency</h2>
                         <p>Web Designer & Developer</p>
                     </div>
-                    <div><i class="fa-regular fa-trash-can"></i></div>
+                    <div><i class="fa-regular fa-trash-can delete-btn"></i></div>
                 </div>
                 <div class="my-5">
                     <p>Los Angeles, CA
@@ -104,17 +117,19 @@
                 </div>
 
                 <div class="flex gap-4">
-                    <button class="border border-green-500 text-green-500 px-6 py-2 rounded-lg">INTERVIEW</button>
-                    <button class="border  border-red-500 text-red-500 px-6 py-2 rounded-lg">REJECTED</button>
+                    <button
+                        class="interview-btn border border-green-500 text-green-500 px-6 py-2 rounded-lg">INTERVIEW</button>
+                    <button
+                        class="rejected-btn border  border-red-500 text-red-500 px-6 py-2 rounded-lg">REJECTED</button>
                 </div>
             </section>
-            <section class="bg-white p-6">
+            <section class="bg-white p-6 rounded-lg">
                 <div class="flex justify-between">
                     <div>
                         <h2 class="font-semibold">DataViz Solutions</h2>
                         <p>Data Visualization Specialist</p>
                     </div>
-                    <div><i class="fa-regular fa-trash-can"></i></div>
+                    <div><i class="fa-regular fa-trash-can delete-btn"></i></div>
                 </div>
                 <div class="my-5">
                     <p>Boston, MA
@@ -132,17 +147,19 @@
                 </div>
 
                 <div class="flex gap-4">
-                    <button class="border border-green-500 text-green-500 px-6 py-2 rounded-lg">INTERVIEW</button>
-                    <button class="border  border-red-500 text-red-500 px-6 py-2 rounded-lg">REJECTED</button>
+                    <button
+                        class="interview-btn border border-green-500 text-green-500 px-6 py-2 rounded-lg">INTERVIEW</button>
+                    <button
+                        class="rejected-btn border  border-red-500 text-red-500 px-6 py-2 rounded-lg">REJECTED</button>
                 </div>
             </section>
-            <section class="bg-white p-6">
+            <section class="bg-white p-6 rounded-lg">
                 <div class="flex justify-between">
                     <div>
                         <h2 class="font-semibold">CloudFirst Inc</h2>
                         <p>Backend Developer</p>
                     </div>
-                    <div><i class="fa-regular fa-trash-can"></i></div>
+                    <div><i class="fa-regular fa-trash-can delete-btn"></i></div>
                 </div>
                 <div class="my-5">
                     <p>Seattle, WA
@@ -159,17 +176,19 @@
                 </div>
 
                 <div class="flex gap-4">
-                    <button class="border border-green-500 text-green-500 px-6 py-2 rounded-lg">INTERVIEW</button>
-                    <button class="border  border-red-500 text-red-500 px-6 py-2 rounded-lg">REJECTED</button>
+                    <button
+                        class="interview-btn border border-green-500 text-green-500 px-6 py-2 rounded-lg">INTERVIEW</button>
+                    <button
+                        class="rejected-btn border  border-red-500 text-red-500 px-6 py-2 rounded-lg">REJECTED</button>
                 </div>
             </section>
-            <section class="bg-white p-6">
+            <section class="bg-white p-6 rounded-lg">
                 <div class="flex justify-between">
                     <div>
                         <h2 class="font-semibold">Innovation Labs</h2>
                         <p>UI/UX Engineer</p>
                     </div>
-                    <div><i class="fa-regular fa-trash-can"></i></div>
+                    <div><i class="fa-regular fa-trash-can delete-btn"></i></div>
                 </div>
                 <div class="my-5">
                     <p>Austin, TX
@@ -186,17 +205,19 @@
                 </div>
 
                 <div class="flex gap-4">
-                    <button class="border border-green-500 text-green-500 px-6 py-2 rounded-lg">INTERVIEW</button>
-                    <button class="border  border-red-500 text-red-500 px-6 py-2 rounded-lg">REJECTED</button>
+                    <button
+                        class="interview-btn border border-green-500 text-green-500 px-6 py-2 rounded-lg">INTERVIEW</button>
+                    <button
+                        class="rejected-btn border  border-red-500 text-red-500 px-6 py-2 rounded-lg">REJECTED</button>
                 </div>
             </section>
-            <section class="bg-white p-6">
+            <section class="bg-white p-6 rounded-lg">
                 <div class="flex justify-between">
                     <div>
                         <h2 class="font-semibold">MegaCorp Solutions</h2>
                         <p>JavaScript Developer</p>
                     </div>
-                    <div><i class="fa-regular fa-trash-can"></i></div>
+                    <div><i class="fa-regular fa-trash-can delete-btn"></i></div>
                 </div>
                 <div class="my-5">
                     <p>New York, NY
@@ -213,17 +234,19 @@
                 </div>
 
                 <div class="flex gap-4">
-                    <button class="border border-green-500 text-green-500 px-6 py-2 rounded-lg">INTERVIEW</button>
-                    <button class="border  border-red-500 text-red-500 px-6 py-2 rounded-lg">REJECTED</button>
+                    <button
+                        class="interview-btn border border-green-500 text-green-500 px-6 py-2 rounded-lg">INTERVIEW</button>
+                    <button
+                        class="rejected-btn border  border-red-500 text-red-500 px-6 py-2 rounded-lg">REJECTED</button>
                 </div>
             </section>
-            <section class="bg-white p-6">
+            <section class="bg-white p-6 rounded-lg">
                 <div class="flex justify-between">
                     <div>
                         <h2 class="font-semibold">StartupXYZ</h2>
                         <p>Full Stack Engineer</p>
                     </div>
-                    <div><i class="fa-regular fa-trash-can"></i></div>
+                    <div><i class="fa-regular fa-trash-can delete-btn"></i></div>
                 </div>
                 <div class="my-5">
                     <p>Remote
@@ -240,17 +263,19 @@
                 </div>
 
                 <div class="flex gap-4">
-                    <button class="border border-green-500 text-green-500 px-6 py-2 rounded-lg">INTERVIEW</button>
-                    <button class="border  border-red-500 text-red-500 px-6 py-2 rounded-lg">REJECTED</button>
+                    <button
+                        class="interview-btn border border-green-500 text-green-500 px-6 py-2 rounded-lg">INTERVIEW</button>
+                    <button
+                        class="rejected-btn border  border-red-500 text-red-500 px-6 py-2 rounded-lg">REJECTED</button>
                 </div>
             </section>
-            <section class="bg-white p-6">
+            <section class="bg-white p-6 rounded-lg">
                 <div class="flex justify-between">
                     <div>
                         <h2 class="font-semibold">TechCorp Industries</h2>
                         <p>Senior Frontend Developer</p>
                     </div>
-                    <div><i class="fa-regular fa-trash-can"></i></div>
+                    <div><i class="fa-regular fa-trash-can delete-btn"></i></div>
                 </div>
                 <div class="my-5">
                     <p>San Francisco, CA
@@ -262,17 +287,21 @@
 
                 <div class="mb-5">
                     <button class="bg-[#eef4ffFF] px-6 py-2 rounded-lg mb-2">Not Applied</button>
-                    <p>We are looking for an experienced Frontend Developer to build scalable web applications using React and TypeScript. You will work with a talented team on cutting-edge projects.</p>
+                    <p>We are looking for an experienced Frontend Developer to build scalable web applications using
+                        React and TypeScript. You will work with a talented team on cutting-edge projects.</p>
                 </div>
 
                 <div class="flex gap-4">
-                    <button class="border border-green-500 text-green-500 px-6 py-2 rounded-lg">INTERVIEW</button>
-                    <button class="border  border-red-500 text-red-500 px-6 py-2 rounded-lg">REJECTED</button>
+                    <button
+                        class="interview-btn border border-green-500 text-green-500 px-6 py-2 rounded-lg">INTERVIEW</button>
+                    <button
+                        class="rejected-btn border  border-red-500 text-red-500 px-6 py-2 rounded-lg">REJECTED</button>
                 </div>
             </section>
         </div>
     </main>
 
+    <script src="/scripts/script.js"></script>
 </body>
 
 </html>
