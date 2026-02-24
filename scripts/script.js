@@ -28,9 +28,9 @@ function calculateCount() {
 calculateCount();
 
 function toggleStyle(id) {
-    allFilterBtn.classList.remove('bg-blue-500','text-white');
-    interviewFilterBtn.classList.remove('bg-blue-500','text-white');
-    rejectedFilterBtn.classList.remove('bg-blue-500','text-white');
+    allFilterBtn.classList.remove('bg-blue-500', 'text-white');
+    interviewFilterBtn.classList.remove('bg-blue-500', 'text-white');
+    rejectedFilterBtn.classList.remove('bg-blue-500', 'text-white');
 
     allFilterBtn.classList.add('bg-white');
     interviewFilterBtn.classList.add('bg-white');
@@ -38,7 +38,7 @@ function toggleStyle(id) {
 
     const selected = document.getElementById(id);
     selected.classList.remove('bg-white', 'text-black')
-    selected.classList.add('bg-blue-500','text-white');
+    selected.classList.add('bg-blue-500', 'text-white');
 }
 
 //FILTER FUNCTION
@@ -69,42 +69,63 @@ rejectedFilterBtn.onclick = () => { toggleStyle('rejected-filter-btn'); filterJo
 
 
 // MAIN CLICK HANDLER
-mainContainer.addEventListener('click', function(event) {
+mainContainer.addEventListener('click', function (event) {
     const card = event.target.closest('section');
     if (!card) return;
 
     // INTERVIEW CLICK
     if (event.target.classList.contains('interview-btn')) {
+    const statusBtn = card.querySelector('.status-btn');
 
-        if (card.dataset.status === "interview") {
-            card.dataset.status = "all";
-            interviewList = interviewList.filter(c => c !== card);
-        } else {
-            card.dataset.status = "interview";
-            interviewList.push(card);
-            rejectedList = rejectedList.filter(c => c !== card);
-        }
+    if (card.dataset.status === "interview") {
+        card.dataset.status = "all";
+        interviewList = interviewList.filter(c => c !== card);
 
-        calculateCount();
-        filterJobs(currentFilter);
+        statusBtn.classList.add('hidden');
+        statusBtn.innerText = "Not Applied";
+        statusBtn.className = "status-btn hidden px-6 py-2 rounded-lg mb-2 border";
+    } else {
+        card.dataset.status = "interview";
+        interviewList.push(card);
+        rejectedList = rejectedList.filter(c => c !== card);
+
+        statusBtn.classList.remove('hidden');
+        statusBtn.innerText = "Interview";
+        statusBtn.className =
+            "status-btn px-6 py-2 rounded-lg mb-2 border border-green-500 text-green-500 bg-green-50";
     }
+
+    calculateCount();
+    filterJobs(currentFilter);
+}
 
     // REJECTED CLICK
     if (event.target.classList.contains('rejected-btn')) {
+    const statusBtn = card.querySelector('.status-btn');
 
-        if (card.dataset.status === "rejected") {
-            card.dataset.status = "all";
-            rejectedList = rejectedList.filter(c => c !== card);
-        } else {
-            card.dataset.status = "rejected";
-            rejectedList.push(card);
-            interviewList = interviewList.filter(c => c !== card);
-        }
+    if (card.dataset.status === "rejected") {
+        card.dataset.status = "all";
+        rejectedList = rejectedList.filter(c => c !== card);
 
-        calculateCount();
-        filterJobs(currentFilter);
+        statusBtn.classList.add('hidden');
+        statusBtn.innerText = "Not Applied";
+        statusBtn.className = "status-btn hidden px-6 py-2 rounded-lg mb-2 border";
+    } else {
+        card.dataset.status = "rejected";
+        rejectedList.push(card);
+        interviewList = interviewList.filter(c => c !== card);
+
+        statusBtn.classList.remove('hidden');
+        statusBtn.innerText = "Rejected";
+        statusBtn.className =
+            "status-btn px-6 py-2 rounded-lg mb-2 border border-red-500 text-red-500 bg-red-50";
     }
 
+    calculateCount();
+    filterJobs(currentFilter);
+}
+
+    
     // DELETE CLICK
     if (event.target.classList.contains('delete-btn')) {
         if (card.dataset.status === "interview") {

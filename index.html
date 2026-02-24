@@ -16,6 +16,39 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <!-- cursor and hover effects -->
+     <style>
+      button {
+        cursor: pointer;
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+      }
+
+      button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      }
+
+      button:active {
+        transform: scale(0.97);
+      }
+
+      .fa-trash-can {
+        cursor: pointer;
+        transition: transform 0.15s ease, color 0.15s ease;
+      }
+
+      .fa-trash-can:hover {
+        transform: scale(1.2) rotate(-8deg);
+        color: #ef4444;
+      }
+
+      .fa-trash-can:active {
+        transform: scale(0.9);
+      }
+    </style>
+
 </head>
 
 <body class="bg-[#1e1e1e]/5 text-[#002c5c] font-['Geist']">
@@ -83,7 +116,7 @@
                 </div>
 
                 <div class="mb-5">
-                    <button class="bg-[#eef4ffFF] px-6 py-2 rounded-lg mb-2">Not Applied</button>
+                    <button class="status-btn hidden px-6 py-2 rounded-lg mb-2 border">
                     <p>Build cross-platform mobile applications using React Native. Work on products used by millions of
                         users worldwide.</p>
                 </div>
@@ -112,7 +145,7 @@
                 </div>
 
                 <div class="mb-5">
-                    <button class="bg-[#eef4ffFF] px-6 py-2 rounded-lg mb-2">Not Applied</button>
+                    <button class="status-btn hidden px-6 py-2 rounded-lg mb-2 border">
                     <p>Create stunning web experiences for high-profile clients. Must have portfolio and experience with
                         modern web design trends.</p>
                 </div>
@@ -141,7 +174,7 @@
                 </div>
 
                 <div class="mb-5">
-                    <button class="bg-[#eef4ffFF] px-6 py-2 rounded-lg mb-2">Not Applied</button>
+                    <button class="status-btn hidden px-6 py-2 rounded-lg mb-2 border">
                     <p>Transform complex data into compelling visualizations. Required skills: D3.js, React, and strong
                         analytical thinking.
                     </p>
@@ -171,7 +204,7 @@
                 </div>
 
                 <div class="mb-5">
-                    <button class="bg-[#eef4ffFF] px-6 py-2 rounded-lg mb-2">Not Applied</button>
+                    <button class="status-btn hidden px-6 py-2 rounded-lg mb-2 border">
                     <p>Design and maintain scalable backend systems using Python and AWS. Work with modern DevOps
                         practices and cloud infrastructure.</p>
                 </div>
@@ -200,7 +233,7 @@
                 </div>
 
                 <div class="mb-5">
-                    <button class="bg-[#eef4ffFF] px-6 py-2 rounded-lg mb-2">Not Applied</button>
+                    <button class="status-btn hidden px-6 py-2 rounded-lg mb-2 border">
                     <p>Create beautiful and functional user interfaces for our suite of products. Strong design skills
                         and frontend development expertise required.</p>
                 </div>
@@ -229,7 +262,7 @@
                 </div>
 
                 <div class="mb-5">
-                    <button class="bg-[#eef4ffFF] px-6 py-2 rounded-lg mb-2">Not Applied</button>
+                    <button class="status-btn hidden px-6 py-2 rounded-lg mb-2 border">
                     <p>Build enterprise applications with JavaScript and modern frameworks. We offer competitive
                         compensation, health insurance, and professional development opportunities.</p>
                 </div>
@@ -258,7 +291,7 @@
                 </div>
 
                 <div class="mb-5">
-                    <button class="bg-[#eef4ffFF] px-6 py-2 rounded-lg mb-2">Not Applied</button>
+                    <button class="status-btn hidden px-6 py-2 rounded-lg mb-2 border">
                     <p>Join our fast-growing startup and work on our core platform. Experience with Node.js and React
                         required. Great benefits and equity package included.</p>
                 </div>
@@ -287,7 +320,7 @@
                 </div>
 
                 <div class="mb-5">
-                    <button class="bg-[#eef4ffFF] px-6 py-2 rounded-lg mb-2">Not Applied</button>
+                    <button class="status-btn hidden px-6 py-2 rounded-lg mb-2 border">
                     <p>We are looking for an experienced Frontend Developer to build scalable web applications using
                         React and TypeScript. You will work with a talented team on cutting-edge projects.</p>
                 </div>
